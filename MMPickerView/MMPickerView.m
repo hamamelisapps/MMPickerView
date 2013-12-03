@@ -35,7 +35,7 @@ NSString * const MMshowsSelectionIndicator = @"showsSelectionIndicator";
 @property (nonatomic, strong) UIColor *pickerViewTextColor;
 @property (nonatomic, strong) UIFont *pickerViewFont;
 @property (nonatomic, assign) CGFloat yValueFromTop;
-@property (nonatomic, assign) NSInteger pickerViewTextAlignment;
+@property (nonatomic, assign) NSTextAlignment pickerViewTextAlignment;
 @property (nonatomic, assign) BOOL pickerViewShowsSelectionIndicator;
 @property (copy) void (^onDismissCompletion)(NSString *);
 @property (copy) NSString *(^objectToStringConverter)(id object);
@@ -148,10 +148,10 @@ NSString * const MMshowsSelectionIndicator = @"showsSelectionIndicator";
   NSNumber *textAlignment = [[NSNumber alloc] init];
   textAlignment = options[MMtextAlignment];
   //Default value is NSTextAlignmentCenter
-  _pickerViewTextAlignment = 1;
+  _pickerViewTextAlignment = NSTextAlignmentCenter;
   
   if (textAlignment != nil) {
-  _pickerViewTextAlignment = [options[MMtextAlignment] integerValue];
+  _pickerViewTextAlignment = (NSTextAlignment)[options[MMtextAlignment] integerValue];
   }
   
   BOOL showSelectionIndicator = [options[MMshowsSelectionIndicator] boolValue];
